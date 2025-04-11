@@ -44,16 +44,13 @@ class UserController extends GetxController {
     await getAllUsers();
   }
 
-  /// Novo método para registrar o usuário com geolocalização coletada no momento do cadastro
   Future<void> registerUser({
     required String nomePescador,
     required String nomePeixe,
     required int aparelhoPesca,
     required int quantidadeKilos,
   }) async {
-    // Obtém a geolocalização usando o LocationService
     double geoValue = await _locationService.getCurrentLatitude();
-    // Cria um novo usuário com os dados e a geolocalização obtida
     UserModel newUser = UserModel(
       nomePescador: nomePescador,
       nomePeixe: nomePeixe,
